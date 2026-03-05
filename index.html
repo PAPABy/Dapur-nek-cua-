@@ -153,20 +153,22 @@ const phoneNumber = "62895602016464";
 fetch("products.json")
   .then(response => response.json())
   .then(products => {
+
     const container = document.getElementById("productContainer");
 
     products.forEach(product => {
+
       const card = document.createElement("div");
-card.className = "card fade-in";
+      card.className = "card fade-in";
 
       const message = `Halo Dapur Nek Cua, saya ingin memesan ${product.name}`;
       const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
       card.innerHTML = `
-  <div class="image-wrapper">
-    <img src="${product.image}" alt="${product.name}">
-    <span class="watermark">Dapur Nek Cua</span>
-  </div>
+        <div class="image-wrapper">
+          <img src="${product.image}" alt="${product.name}">
+          <span class="watermark">Dapur Nek Cua</span>
+        </div>
         <h3>${product.name}</h3>
         <p>Rp${product.price.toLocaleString()} / toples</p>
         <a class="btn" href="${waLink}" target="_blank">Pesan Untuk Keluarga</a>
@@ -174,29 +176,24 @@ card.className = "card fade-in";
 
       container.appendChild(card);
     });
+
+    // FADE IN OBSERVER (dipanggil setelah produk dibuat)
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    });
+
+    document.querySelectorAll(".fade-in").forEach(el => {
+      observer.observe(el);
+    });
+
+  })
+  .catch(error => {
+    console.error("Error loading products:", error);
   });
-</script>
-
-<script>
-window.addEventListener("load", function() {
-  const loader = document.getElementById("loader");
-  loader.style.opacity = "0";
-  setTimeout(() => loader.style.display = "none", 500);
-});
-</script>
-
-<script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-});
-
-document.querySelectorAll(".fade-in").forEach(el => {
-  observer.observe(el);
-});
 </script>
   
 </body>
