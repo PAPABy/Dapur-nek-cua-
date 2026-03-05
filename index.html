@@ -100,6 +100,22 @@ header h1 {
   font-size: 18px;
   color: #3e2f23;
   }
+
+  .image-wrapper {
+  position: relative;
+}
+
+.watermark {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  background: rgba(62,47,35,0.7);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 20px;
+  opacity: 0.8;
+}
 </style>
 </head>
 <body>
@@ -133,10 +149,13 @@ fetch("products.json")
       card.className = "card";
 
       const message = `Halo Dapur Nek Cua, saya ingin memesan ${product.name}`;
-      const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      const waLink = `https://wa.me/${6295602016464}?text=${encodeURIComponent(message)}`;
 
       card.innerHTML = `
-        <img src="${product.image}" alt="${product.name}">
+  <div class="image-wrapper">
+    <img src="${product.image}" alt="${product.name}">
+    <span class="watermark">Dapur Nek Cua</span>
+  </div>
         <h3>${product.name}</h3>
         <p>Rp${product.price.toLocaleString()} / toples</p>
         <a class="btn" href="${waLink}" target="_blank">Pesan Sekarang</a>
