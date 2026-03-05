@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Nastar Premium",
+    "price": 120000,
+    "image": "images/nastar.jpg"
+  },
+  {
+    "name": "Kastengel",
+    "price": 130000,
+    "image": "images/kastengel.jpg"
+  }
+]
