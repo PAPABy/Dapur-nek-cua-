@@ -67,10 +67,48 @@ header h1 {
   border-radius: 25px;
   margin-top: 10px;
 }
+
+  /* LOADER */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #f8f5f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.spinner {
+  width: 45px;
+  height: 45px;
+  border: 4px solid #e5dccf;
+  border-top: 4px solid #c6a75e;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+#loader p {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #3e2f23;
+  }
 </style>
 </head>
 <body>
 
+<div id="loader">
+  <div class="spinner"></div>
+  <p>Dapur Nek Cua</p>
+</div>
+  
 <header>
   <h1>Dapur Nek Cua</h1>
   <p>Kue Lebaran Bersama Buatan Rumah Ibu</p>
@@ -109,5 +147,13 @@ fetch("products.json")
   });
 </script>
 
+<script>
+window.addEventListener("load", function() {
+  const loader = document.getElementById("loader");
+  loader.style.opacity = "0";
+  setTimeout(() => loader.style.display = "none", 500);
+});
+</script>
+  
 </body>
 </html>
