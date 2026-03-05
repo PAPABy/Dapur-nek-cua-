@@ -33,11 +33,14 @@ header h1 {
 }
 
 .card {
-  background: white;
-  border-radius: 15px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
   padding: 20px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
   transition: transform 0.3s ease;
 }
 
@@ -60,12 +63,22 @@ header h1 {
 
 .btn {
   display: inline-block;
-  background-color: #c6a75e;
+  background: linear-gradient(135deg, #c6a75e, #b8964f);
   color: white;
-  padding: 10px 20px;
+  padding: 12px 25px;
   text-decoration: none;
-  border-radius: 25px;
-  margin-top: 10px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(198,167,94,0.3);
+}
+
+.btn:active {
+  transform: scale(0.97);
 }
 
   /* LOADER */
@@ -116,6 +129,18 @@ header h1 {
   border-radius: 20px;
   opacity: 0.8;
 }
+
+  /* FADE IN ANIMATION */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+  }
 </style>
 </head>
 <body>
@@ -146,7 +171,7 @@ fetch("products.json")
 
     products.forEach(product => {
       const card = document.createElement("div");
-      card.className = "card";
+      card.className = "card fade-in";
 
       const message = `Halo Dapur Nek Cua, saya ingin memesan ${product.name}`;
       const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -158,7 +183,7 @@ fetch("products.json")
   </div>
         <h3>${product.name}</h3>
         <p>Rp${product.price.toLocaleString()} / toples</p>
-        <a class="btn" href="${waLink}" target="_blank">Pesan Sekarang</a>
+        <a class="btn" href="${waLink}" target="_blank">Pesan Untuk Keluarga</a>
       `;
 
       container.appendChild(card);
@@ -171,6 +196,20 @@ window.addEventListener("load", function() {
   const loader = document.getElementById("loader");
   loader.style.opacity = "0";
   setTimeout(() => loader.style.display = "none", 500);
+});
+</script>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".fade-in").forEach(el => {
+  observer.observe(el);
 });
 </script>
   
