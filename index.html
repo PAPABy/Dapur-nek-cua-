@@ -171,7 +171,7 @@ fetch("products.json")
 
     products.forEach(product => {
       const card = document.createElement("div");
-      card.className = "card fade-in";
+card.className = "card fade-in";
 
       const message = `Halo Dapur Nek Cua, saya ingin memesan ${product.name}`;
       const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
