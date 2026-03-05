@@ -1,12 +1,37 @@
 [
   {
     "name": "Nastar Klasik",
-    "price": 120000,
+    "price": 50000,
     "image": "images/pineapple cookies.png"
   },
   {
-    "name": "Kastengel",
-    "price": 130000,
-    "image": "images/kastengel.jpg"
+    "name": "Kukis Chip & Gula Palem",
+    "price": 50000,
+    "image": "images/cookies sugar palm.png"
+  },
+  {
+    "name": "Kukis Coklat Keju",
+    "price": 40000,
+    "image": "images/Coklat Keju.png"
+  },
+  {
+    "name": "Kukis Blueberry & Kelapa Tabur",
+    "price": 40000,
+    "image": "images/temprit blueberry kelapa tabur.png"
+  },
+  {
+    "name": "Kukis Janda Genit",
+    "price": 40000,
+    "image": "images/Janda Genit.png"
+  },
+  {
+    "name": "Kukis Strawberry",
+    "price": 40000,
+    "image": "images/Flower cookies with strawberry jam.png"
+  },
+  {
+    "name": "Kukis Thumbprint Selai Strawberry & Keju Parut",
+    "price": 50000,
+    "image": "images/temprit keju selai strawberry.png"
   }
 ]
