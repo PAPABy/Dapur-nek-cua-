@@ -44,6 +44,7 @@ header h1 {
 .card:hover {
   transform: translateY(-5px);
 }
+
 .card img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -98,7 +99,7 @@ header h1 {
   font-family: 'Playfair Display', serif;
   font-size: 18px;
   color: #3e2f23;
-}
+  }
 
 .image-wrapper {
   position: relative;
@@ -114,18 +115,6 @@ header h1 {
   padding: 4px 8px;
   border-radius: 20px;
   opacity: 0.8;
-}
-
-  /* FADE IN ANIMATION */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
   }
 </style>
 </head>
@@ -153,22 +142,20 @@ const phoneNumber = "62895602016464";
 fetch("products.json")
   .then(response => response.json())
   .then(products => {
-
     const container = document.getElementById("productContainer");
 
     products.forEach(product => {
-
       const card = document.createElement("div");
-      card.className = "card fade-in";
+      card.className = "card";
 
       const message = `Halo Dapur Nek Cua, saya ingin memesan ${product.name}`;
       const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
       card.innerHTML = `
-        <div class="image-wrapper">
-          <img src="${product.image}" alt="${product.name}">
-          <span class="watermark">Dapur Nek Cua</span>
-        </div>
+  <div class="image-wrapper">
+    <img src="${product.image}" alt="${product.name}">
+    <span class="watermark">Dapur Nek Cua</span>
+  </div>
         <h3>${product.name}</h3>
         <p>Rp${product.price.toLocaleString()} / toples</p>
         <a class="btn" href="${waLink}" target="_blank">Pesan Untuk Keluarga</a>
@@ -176,24 +163,15 @@ fetch("products.json")
 
       container.appendChild(card);
     });
-
-    // FADE IN OBSERVER (dipanggil setelah produk dibuat)
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        }
-      });
-    });
-
-    document.querySelectorAll(".fade-in").forEach(el => {
-      observer.observe(el);
-    });
-
-  })
-  .catch(error => {
-    console.error("Error loading products:", error);
   });
+</script>
+
+<script>
+window.addEventListener("load", function() {
+  const loader = document.getElementById("loader");
+  loader.style.opacity = "0";
+  setTimeout(() => loader.style.display = "none", 500);
+});
 </script>
   
 </body>
