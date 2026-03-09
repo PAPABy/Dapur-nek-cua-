@@ -33,5 +33,20 @@
     "name": "Kukis Thumbprint Selai Strawberry & Keju Parut",
     "price": 50000,
     "image": "images/temprit keju selai strawberry.png"
+  },
+  {
+    "name": "Kukis pisang Coklat",
+    "price": 40000,
+    "image": "images/pisang coklat.png"
+  },
+  {
+    "name": "Kukis Nastar Daun",
+    "price": 50000,
+    "image": "images/nastar daun.png"
+  },
+  {
+    "name": "Kukis Coklat Kacang",
+    "price": 40000,
+    "image": "images/kacang Coklat.png"
   }
 ]
