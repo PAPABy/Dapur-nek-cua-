@@ -35,7 +35,7 @@
     "image": "images/temprit keju selai strawberry.png"
   },
   {
-    "name": "Kukis pisang Coklat",
+    "name": "Kukis Pisang Coklat",
     "price": 40000,
     "image": "images/pisang coklat.png"
   },
@@ -47,6 +47,6 @@
   {
     "name": "Kukis Coklat Kacang",
     "price": 40000,
-    "image": "images/kacang Coklat.png"
-  }
+    "image": "images/kacang coklat.png"
+  },
 ]
